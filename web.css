@@ -67,8 +67,9 @@ div div {
 	width: 400;
 	margin-top: 68px;
 	padding-top: 50px;
-	margin-left: 35px;
+	margin-left: 40px;
 	margin-right: 50px;
+	padding-left: 20px;
 }
 
 #profile img {
@@ -77,8 +78,15 @@ div div {
 	border-radius: 10px;
 }
 
+#home-intro {
+	width: 84%;
+}
+
+#bio-intro {
+	width: 60%;
+}
+
 .intro {
-	width: 75%;
 	text-align: justify;
 	margin-top: 125px;
 	padding-top: 100px;
