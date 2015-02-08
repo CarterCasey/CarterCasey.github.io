@@ -1,85 +1,96 @@
 body {
-	background-color: rgb(230, 230, 255);
 	font-size: 18px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-header {
-	margin: 10px;
-	text-align: center;
+h1, h2, h3, h4, h5, h6 {
+	font-family: Garamond, Baskerville,
+				"Baskerville Old Face", "Hoefler Text",
+				"Times New Roman", serif;
 }
 
-header img {
-	width: 450px;
-	height: 300px;
+a {
+	color: rgb(0, 150, 200);
+	text-decoration: none;
 }
 
-footer {
-	font-size: 12px;
-	text-align: center;
-}
-
-footer div {
-	width: 100%;
-	padding: 50px;
-	margin: auto;
-}
-
-div {
-	padding-top: 10px;
-	margin-left: 12%;
-	margin-right: 15%;
-}
-
-table, th, tr {
-	border: 1px solid black;
-	font-size: 18px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-th td p {
-	font-size: 20px;
-}
-
-td {
-	border: 1px solid black;
-	vertical-align: top;
-	padding: 5px;
+a:hover {
+	color: rgb(0, 100, 125);
+	text-decoration: none;
 }
 
 ul {
+	margin-left: 0px;
+	padding-left: 0px;
+	list-style-type: none;
+}
+
+div div {
+	margin-left: 3%;
+	margin-right: 3%;
+}
+
+#top-menu {
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	padding-top: 55px;
+	position: absolute;
+	padding-bottom: 50px;
+	background-color: rgb(150, 180, 240);
+}
+
+#top-menu a {
+	color: black;
+}
+
+#top-menu a:hover {
+	color: gray;
+}
+
+#title {
+	float: left;
+	padding: 5px;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+#menu-items {
+	float: right;
+	font-size: 22px;
 	margin-top: 10px;
 	margin-right: 10px;
 }
 
-.excite {
-	font-weight: bold;
-	font-size: 20px;
-	color: rgb(50, 0, 100);
-	text-transform: capitalize;
+#menu-items li {
+	padding: 6px;
+	display: inline;
 }
 
-div.buy_button {
-	width: 20%;
-	height: 30px;
-	padding: 10px;
-	font-weight: bold;
-	font-size: 30px;
-	text-align: center;
-	background-color: #66CCFF;
-	border-radius: 10px;
-	border: 2px solid #2244DD;
-}
-
-div.buy_button:hover {
-	background-color: #6688FF;
-}
-
-div.buy_button:nth-child(1) {
+#profile {
 	float: left;
+	width: 400;
+	margin-top: 68px;
+	padding-top: 50px;
+	margin-left: 35px;
+	margin-right: 50px;
 }
 
-div.buy_button:nth-child(2) {
-	float: right;
+#profile img {
+	width: 100%;
+	height: auto;
+	border-radius: 10px;
 }
 
+.intro {
+	width: 75%;
+	text-align: justify;
+	margin-top: 125px;
+	padding-top: 100px;
+	margin-left: 75px;
+	margin-right: 25px;
+	padding-left: 50px;
+	padding-right: 5px;
+	padding-bottom: 75px;
+}
