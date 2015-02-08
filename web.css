@@ -3,12 +3,6 @@ body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: Garamond, Baskerville,
-				"Baskerville Old Face", "Hoefler Text",
-				"Times New Roman", serif;
-}
-
 a {
 	color: rgb(0, 150, 200);
 	text-decoration: none;
