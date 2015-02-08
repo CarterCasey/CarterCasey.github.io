@@ -1,0 +1,85 @@
+body {
+	background-color: rgb(230, 230, 255);
+	font-size: 18px;
+}
+
+header {
+	margin: 10px;
+	text-align: center;
+}
+
+header img {
+	width: 450px;
+	height: 300px;
+}
+
+footer {
+	font-size: 12px;
+	text-align: center;
+}
+
+footer div {
+	width: 100%;
+	padding: 50px;
+	margin: auto;
+}
+
+div {
+	padding-top: 10px;
+	margin-left: 12%;
+	margin-right: 15%;
+}
+
+table, th, tr {
+	border: 1px solid black;
+	font-size: 18px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+th td p {
+	font-size: 20px;
+}
+
+td {
+	border: 1px solid black;
+	vertical-align: top;
+	padding: 5px;
+}
+
+ul {
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.excite {
+	font-weight: bold;
+	font-size: 20px;
+	color: rgb(50, 0, 100);
+	text-transform: capitalize;
+}
+
+div.buy_button {
+	width: 20%;
+	height: 30px;
+	padding: 10px;
+	font-weight: bold;
+	font-size: 30px;
+	text-align: center;
+	background-color: #66CCFF;
+	border-radius: 10px;
+	border: 2px solid #2244DD;
+}
+
+div.buy_button:hover {
+	background-color: #6688FF;
+}
+
+div.buy_button:nth-child(1) {
+	float: left;
+}
+
+div.buy_button:nth-child(2) {
+	float: right;
+}
+
