@@ -78,6 +78,14 @@ div div {
 	border-radius: 10px;
 }
 
+.intro {
+	text-align: justify;
+	margin-top: 125px;
+	padding-top: 100px;
+	margin-right: 25px;
+	padding-right: 5px;
+}
+
 #home-intro {
 	width: 84%;
 	margin-left: 75px;
@@ -88,13 +96,45 @@ div div {
 	width: 60%;
 	margin-left: 125px;
 	padding-left: 100px;
+	padding-bottom: 75px;
 }
 
-.intro {
-	text-align: justify;
-	margin-top: 125px;
-	padding-top: 100px;
-	margin-right: 25px;
-	padding-right: 5px;
-	padding-bottom: 75px;
+#resume-intro {
+	text-align: center;
+	margin-bottom: 25px;
+	padding-bottom: 25px;
+}
+
+.job {
+	font-style: italic;
+}
+
+#resume {
+	width: 70%;
+	margin-left: 50px;
+	padding-left: 50px;
+	margin-bottom: 25px;
+	padding-bottom: 25px;
+}
+
+#resume div {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+#resume p {
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+}
+
+#resume ul {
+	margin-top: 0px;
+	padding-top: 0px;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+#resume li {
+	list-style-type: disc;
+	list-style-position: inside;
 }
