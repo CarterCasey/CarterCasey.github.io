@@ -32,7 +32,11 @@ div div {
 	padding-top: 55px;
 	position: absolute;
 	padding-bottom: 50px;
+	text-transform: uppercase;
 	background-color: rgb(150, 180, 240);
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+
+	/*font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;*/
 }
 
 #top-menu a {
@@ -46,13 +50,13 @@ div div {
 #title {
 	float: left;
 	padding: 5px;
-	font-size: 28px;
+	font-size: 26px;
 	font-weight: bold;
 }
 
 #menu-items {
 	float: right;
-	font-size: 22px;
+	font-size: 20px;
 	margin-top: 10px;
 	margin-right: 10px;
 }
