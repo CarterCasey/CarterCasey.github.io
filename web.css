@@ -140,3 +140,27 @@ div div {
 	list-style-type: disc;
 	list-style-position: inside;
 }
+
+#presentation {
+	margin-bottom: 25px;
+	padding-bottom: 25px;
+
+	margin-left: 50px;
+	padding-left: 50px;
+	margin-bottom: 25px;
+	padding-bottom: 25px;
+}
+
+#presentation-intro {
+	text-align: left;
+	margin-top: 110px;
+	padding-top: 85px;
+	margin-left: 30px;
+	padding-left: 30px;
+}
+
+#presentation h2 {
+	margin-top: 20px;
+	padding-top: 20px;
+}
+
