@@ -13,11 +13,6 @@ a:hover {
 	text-decoration: none;
 }
 
-ul {
-	margin-left: 0px;
-	padding-left: 0px;
-	list-style-type: none;
-}
 
 div div {
 	margin-left: 3%;
@@ -43,6 +38,12 @@ div div {
 
 #top-menu a:hover {
 	color: gray;
+}
+
+#top-menu ul {
+	margin-left: 0px;
+	padding-left: 0px;
+	list-style-type: none;
 }
 
 #title {
@@ -120,9 +121,4 @@ div div {
 	padding-top: 0px;
 	margin-bottom: 10px;
 	padding-bottom: 10px;
-}
-
-.notes ul li {
-	list-style-type: disc;
-	list-style-position: inside;
 }
