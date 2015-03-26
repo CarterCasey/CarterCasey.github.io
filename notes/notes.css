@@ -75,6 +75,10 @@ div div {
 	text-align: center;
 }
 
+#class-list {
+	text-align: center;
+}
+
 #prev {
 	float: left;
 }
@@ -93,10 +97,6 @@ div div {
 	padding-bottom: 25px;
 }
 
-.job {
-	font-style: italic;
-}
-
 .notes {
 	width: 70%;
 	margin-left: 50px;
@@ -113,16 +113,4 @@ div div {
 .notes p {
 	margin-bottom: 5px;
 	padding-bottom: 5px;
-}
-
-.notes ul {
-	margin-top: 0px;
-	padding-top: 0px;
-	margin-bottom: 10px;
-	padding-bottom: 10px;
-}
-
-.notes li {
-	list-style-type: disc;
-	list-style-position: inside;
 }
