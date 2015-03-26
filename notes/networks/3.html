@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Networks - Lecture 3</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>Networks - Lecture 3</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Jan 22</h1>
+
+<p>Did some math with delays.</p>
+
+<p>Note that sizes are in powers of two, speeds are in powers of ten.</p>
+
+<h2>What does an application care about?</h2>
+
+<p>Don't need to know too much about other layers, but some aspects may be important.  </p>
+
+<p>For example:</p>
+
+<h3>TCP</h3>
+
+<ul>
+<li>Gives reliable delivery, for applications like web apps and chat services.</li>
+<li>Stream oriented, because all parts are important, don't need to be distinguished.</li>
+</ul>
+
+<h3>UDP</h3>
+
+<ul>
+<li>Gives unreliable delivery (best effort), for applications that are more sensitive to delay and don't care too much about loss. Video and voice allow some loss, care more about delays.</li>
+<li>Message oriented, so it knows which messages are important, and which to try to recover.</li>
+</ul>
+
+<h2>Sockets</h2>
+
+<p>Much like file i/o.</p>
+
+<ul>
+<li>Open a file (get descriptor) with system call.</li>
+<li>Read/Write to the file.</li>
+<li>Close file.</li>
+</ul>
+
+<h3>TCP-based sockets</h3>
+
+<h4>Server</h4>
+
+<ul>
+<li>Make socket system call, get socket descriptor. Makes data structure locally.</li>
+<li>Make bind system call, specify port or IP address. (Could use wild card for IP addr.)</li>
+<li>Make listen sytem call, specify which clients are accepted (maybe just TCP).</li>
+<li>If a request comes in, make accept call and create a new socket for that request.</li>
+</ul>
+
+<h4>Client</h4>
+
+<ul>
+<li>Make socket call.</li>
+<li>Must specify a port, so that incoming messages are consistently received. But don't <em>need</em> to use bind, because you don't really care which port is used.</li>
+<li>Make connect call to the web server.</li>
+</ul>
+
+<h4>Parameters <em>(for system calls)</em></h4>
+
+<ul>
+<li>socket(): specify whether it's internet or local. TCP vs UDP. Returns socket descriptor.</li>
+<li>bind(): IP address, port.</li>
+<li>listen(): socket to use, how many requests to accept.</li>
+<li>accept(): pass socket, return new socket descriptors.</li>
+</ul>
+
+<h4>Reading from socket</h4>
+
+<ul>
+<li>Much the same as reading from a file descriptor. Have a buffer, buffer size. Read until EOF.</li>
+<li>A call to close on the socket descriptor sends an EOF to the other end.</li>
+<li>The write and read calls don't necessarily correspond, maybe from buffer size, maybe from lower level protocols (say TCP breaks up a message).</li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>IDS - Lecture 5</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>IDS - Lecture 5</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">IDS</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Feb 3</h1>
+
+<h2>HTTPS</h2>
+
+<ul>
+<li>HTTPS includes authentication (with certificates) and encryption.</li>
+<li>Proxies act as a go-between for client and server.</li>
+<li>The two end up conflicting with each other at times, causing issues.</li>
+<li>Some companies could/do set up proxies that inject ads into web pages.</li>
+</ul>
+
+<h1>A Brief History of Networking - <a href="http://www.cs.tufts.edu/comp/150IDS/slides/HistoryofNetworking.pdf">Slides</a></h1>
+
+<h2>Claude Shannon and Information Theory</h2>
+
+<ul>
+<li>He did work on quantifying information.
+<ul>
+<li>We can think of information in terms of choices, coded with bits.</li>
+<li>Encoding matters. The same bits can convey different messages</li>
+</ul></li>
+<li>He worked for a phone company.
+<ul>
+<li>Wanted to know how much information could be successfully transmitted over a wire.</li>
+<li>Showed that information transfer could be done reliably.</li>
+</ul></li>
+</ul>
+
+<h2>Early Military Computers</h2>
+
+<p>Military wanted missile defense:  </p>
+
+<ul>
+<li>Digitial Radar Relay - Experimented with sending radar data over phone lines.</li>
+<li>Whirlwind at MIT - First interactive machine (not batch).</li>
+<li>Put these together, made a machine that sensed a plane flying past and kept track in its memory.</li>
+<li>SAGE - Semi-automatic Ground System, used to sense incoming air attacks.</li>
+</ul>
+
+<h2>Paul Baran and Packet Switching</h2>
+
+<ul>
+<li>Caused a shift in work from phone lines to digital lines.</li>
+<li>Fault tolerance was exactly what the military wanted.</li>
+<li>Led to ARPANet - connected a couple military and educational hubs.</li>
+</ul>
+
+<h1>Introduction to TCP/IP - <a href="http://www.cs.tufts.edu/comp/150IDS/slides/TCPIP.pdf">Slides</a></h1>
+
+<h2>High-Level of TCP/IP Stack</h2>
+
+<ul>
+<li>Link Layer
+<ul>
+<li>Sends bits from one machine to another.</li>
+<li>Include ethernet, wi-fi, fiber optic, dial-up.</li>
+</ul></li>
+<li>Network Layer
+<ul>
+<li>Packet delivery protocol.</li>
+<li>Mostly IP.</li>
+</ul></li>
+<li>Transport Layer
+<ul>
+<li>Make connection to another computer.</li>
+<li>Send Datagrams from one place to another.</li>
+<li>TCP and UDP.</li>
+</ul></li>
+<li>Application Layer
+<ul>
+<li>Protocols that deliver to specific applications.</li>
+<li>HTTP, FTP, SMTP.</li>
+</ul></li>
+<li>User Layer
+<ul>
+<li>The actual programs a user is working with.</li>
+</ul></li>
+</ul>
+
+<h2>Internet Protocol (IP)</h2>
+
+<ul>
+<li>How we address/find any machine on the internet.
+<ul>
+<li>IPv4 is a 32-bit number that identifies any computer.</li>
+</ul></li>
+<li>Best effort delivery.</li>
+<li>Works with individual packets.</li>
+<li>Must route uniformly, no matter the divisions between wire/radio etc. Abstracts boundaries.</li>
+<li>Fragmentation: Allows us to send up to 65KB at a time, but hardware can break it up.</li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">IDS</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

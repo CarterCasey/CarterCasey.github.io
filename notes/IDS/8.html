@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>IDS - Lecture 8</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>IDS - Lecture 8</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">IDS</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Feb 17</h1>
+
+<h1>Naming cont'd</h1>
+
+<h2>Computing Examples</h2>
+
+<ul>
+<li>Unix file names:
+<ul>
+<li>All chars can be used except for /, needed for paths.</li>
+<li>Can have multiple names for same file.</li>
+</ul></li>
+</ul>
+
+<h2>Internet-Scale Systems</h2>
+
+<ul>
+<li>Don't need very big names, even though Web is <em>very</em> large.</li>
+<li>Name design tells us how it can change, what it can include, and what it does.</li>
+<li>At a high level, the Web is just a series of links to names (and the resources the refer to).</li>
+</ul>
+
+<h2>Uniform Naming</h2>
+
+<ul>
+<li>Uniform Naming allows us to work with things we've never seen before.</li>
+<li>We don't need prior knowledge or permission to follow a link, all you need is HTTP GET.</li>
+<li>Unix File System:
+<ul>
+<li>Single filename space.</li>
+<li>Same space used for files, sockets, devices, pipes.</li>
+<li>Names refer to file descriptors under the hood.</li>
+</ul></li>
+<li>On the web, global names give consistency.
+<ul>
+<li>The same name refers to the same object.</li>
+<li>Absolute global names resolve consistently to the same thing.</li>
+</ul></li>
+<li>What is the "same object?" (We allow human reasoning here.)
+<ul>
+<li>A news website is the same on Tuesday and Thursday, even if the stories are all different.</li>
+<li>A website can return different versions of a page depending on the language.</li>
+<li>Mobile versions of sites.</li>
+</ul></li>
+</ul>
+
+<h2>Names and Addresses</h2>
+
+<p><strong>Name</strong>: Identifier for something. <br />
+<strong>Address</strong>: Locator for something.  </p>
+
+<ul>
+<li>Some names are also addresses, but others aren't.</li>
+<li>If a name doesn't let you find something, you have to convert the name into an address to find it.</li>
+</ul>
+
+<h2>Aliasing</h2>
+
+<ul>
+<li>Useful:
+<ul>
+<li>Absolute vs relative names.</li>
+<li>Different paths to the same thing.</li>
+</ul></li>
+<li>Can be confusing, hard to work with:
+<ul>
+<li>Web cache might not recognize as easily.</li>
+<li>Hard to optimize with aliased pointers.</li>
+</ul></li>
+</ul>
+
+<h2>Lack of names</h2>
+
+<ul>
+<li>It's good to give distinct objects different names.</li>
+<li>Short vs Unique names:
+<ul>
+<li>Short names are easy to remember, and very powerful.</li>
+<li>They're not usually unique.</li>
+</ul></li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">IDS</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

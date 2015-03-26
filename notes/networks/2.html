@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Networks - Lecture 2</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>Networks - Lecture 2</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Jan 20 - <a href="http://www.cs.tufts.edu/comp/112/lectures/lec2.ppt" title="May download...">Slides</a></h1>
+
+<p><strong>Protocol</strong> should contain:</p>
+
+<ul>
+<li>Format</li>
+<li>Order of messages</li>
+<li>Length of message (?)</li>
+</ul>
+
+<p>Why multiple protocols?</p>
+
+<ul>
+<li>Modularity</li>
+<li>Different tasks need different things </li>
+</ul>
+
+<h2>Internet Protocol Stack</h2>
+
+<h3>Application</h3>
+
+<p><em>HTTP, FTP</em>  </p>
+
+<p>(More detail in later classes)</p>
+
+<h3>Transport</h3>
+
+<p><em>TCP</em> <br />
+End-to-end protocol, rather than just neighboring nodes  </p>
+
+<p>Services:</p>
+
+<ul>
+<li>Give reliability in message transfer</li>
+<li>In order delivery</li>
+<li>Flow Control (Client end)</li>
+<li>Congestion Control (Network end)</li>
+</ul>
+
+<p>How it works:  </p>
+
+<p>Handshake (SYN, SYN-ACK, ACK) makes sure the message can go through</p>
+
+<h3>Network</h3>
+
+<p><em>IP</em> <br />
+Narrow waist of the stack.  </p>
+
+<p>Services:</p>
+
+<ul>
+<li>Best effort connection</li>
+<li>Sends using IP address</li>
+</ul>
+
+<p>Routes on destination (rather than content)</p>
+
+<h3>Link</h3>
+
+<p><em>Ethernet, wifi</em></p>
+
+<p>Services:</p>
+
+<ul>
+<li>Best effort connection</li>
+<li>Sends using MAC</li>
+</ul>
+
+<p>ARP translates MAC to IP.</p>
+
+<h3>Physical</h3>
+
+<p>Really just the wires. <br />
+Transfers bits.  </p>
+
+<h2>Sending messages over network</h2>
+
+<ol>
+<li>Start with application layer, produce message.</li>
+<li>Transport layer: add tcp header.</li>
+<li>Network layer: add ip header.</li>
+<li>Link layer: add <em>_</em>_ header.</li>
+<li>Send over physical layer.</li>
+<li>While not at destination, repeat 3 - 5.</li>
+<li>At destination, deal with tcp and app, and if necessary send return message.</li>
+</ol>
+
+<p><strong>LAN</strong> can exist before getting to the network.  </p>
+
+<h2>Network Types</h2>
+
+<h3>Package Switched</h3>
+
+<p>Allows queuing, and consequently may involve queuing delay.</p>
+
+<h3>Circuit Switched</h3>
+
+<p>No queuing, only send message if there are resources available.</p>
+
+<h2>Causes of Delay</h2>
+
+<ul>
+<li>Queuing Delay: limited resources may be allocated for too many packets.</li>
+<li>Propagation Delay: how far apart two nodes are physically, and speed of light.</li>
+<li>Processing Delay: must process message along the way, and at the ends.</li>
+<li>Transmission Delay: only so many bits may be sent at once, band<em>width</em> of channel.</li>
+</ul>
+
+<p><strong>Throughput</strong> is limited to bandwidth of slowest (bottleneck) link in full path.</p>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

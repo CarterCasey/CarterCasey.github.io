@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>IDS - Lecture 2</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>IDS - Lecture 2</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">IDS</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Jan 20</h1>
+
+<h2>Metcalfe's Law - <a href="http://www.cs.tufts.edu/comp/150IDS/slides/Metcalfe.pdf">Slides</a></h2>
+
+<p><strong>Note:</strong> Metcalfe's Law = Network Effects</p>
+
+<ul>
+<li>Metcalfe (who co-invented the ethernet) said that the value of a network is in the number of connections there are (not just the number of nodes, though this is important).</li>
+<li>So one large network is better than many small/medium sized networks.</li>
+<li>Disconnected phone systems in Europe and the US are less useful than both connected.</li>
+</ul>
+
+<h3>Metcalfe's Law and the Web - <a href="http://www.cs.tufts.edu/comp/150IDS/slides/Metcalfe.pdf#page=13">Page</a></h3>
+
+<ul>
+<li>Initially, it's impressive that everyone can see a page you've just published.</li>
+<li>But more impressive, you can link to other pages and let your page give that much more information. Others can also use your page to make theirs more interesting (valuable).</li>
+</ul>
+
+<h3>Implications of Metcalfe's Law - <a href="http://www.cs.tufts.edu/comp/150IDS/slides/Metcalfe.pdf#page=15">Page</a></h3>
+
+<p>If we want to extend the Web to every possible network, it has to handle a lot.</p>
+
+<ul>
+<li>Accessible by whatever hardware and software you want to use.</li>
+<li>Accessible wherever there is a computer.</li>
+<li>Adaptable to whatever languages there are.</li>
+<li>A lack of universality in the web causes divisions.</li>
+<li>Business benefits from the web, but not when it tries to control it.</li>
+<li><a href="http://www.cs.tufts.edu/comp/150IDS/slides/Metcalfe.pdf#page=18">etc.</a></li>
+</ul>
+
+<h3>Scaling the Web - <a href="http://www.cs.tufts.edu/comp/150IDS/slides/Metcalfe.pdf#page=20">Page</a></h3>
+
+<ul>
+<li>Must uniquely identify all resources available in the world (trillions of them).</li>
+<li>Have to get around all the boundaries in the world (physical, digital, legal).</li>
+<li>A good Web is one that is easy to use. Memorable URIs, improvised browsing.</li>
+</ul>
+
+<h2>Fundamentals of Web Architecture - <a href="http://www.cs.tufts.edu/comp/150IDS/slides/WebArchBasics.pdf">Slides</a></h2>
+
+<h3>History - <a href="http://www.cs.tufts.edu/comp/150IDS/slides/WebArchBasics.pdf#page=3">Page</a></h3>
+
+<p>See the slides.</p>
+
+<h3>Pillars of the Architecture - <a href="http://www.cs.tufts.edu/comp/150IDS/slides/WebArchBasics.pdf#page=6">Page</a></h3>
+
+<h4>Identification: URIs</h4>
+
+<ul>
+<li>The <strong>scheme</strong> dictates the protocol with which to make a connection.</li>
+<li>The <strong>host</strong> refers to which machine (server) we try to reach.</li>
+<li>The <strong>path</strong> refers to where the resource that we want is on the server.</li>
+</ul>
+
+<h4><strong>Interaction:</strong> HTTP</h4>
+
+<ul>
+<li>Send packets in a way that's understood universally by all servers on the web.</li>
+</ul>
+
+<h4><strong>Data formats:</strong> HTML, jpg, pdf, gif, etc.</h4>
+
+<ul>
+<li>The web, and namely http, can handle any file format. The client is responsible for understanding the file it gets back (usually handled by browsers).</li>
+</ul>
+
+<h3>Open Standards and Open Source - <a href="http://www.cs.tufts.edu/comp/150IDS/slides/WebArchBasics.pdf#page=20">Page</a></h3>
+
+<p><strong>Open Standards:</strong> How to write something. <br />
+<strong>Open Source:</strong> What was written.  </p>
+
+<ul>
+<li>Open standards allow people to write the technology however they want. It lets web servers be (ideally) a black box.</li>
+<li>If we only use open source software, not everyone can use it. On the other hand, open software <em>does</em> let people access the web freely.</li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">IDS</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Networks - Lecture 7</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>Networks - Lecture 7</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Feb 12</h1>
+
+<h2>Review of P2P</h2>
+
+<ul>
+<li>Main upside is that it's more scalable. You can use the bandwidth of all the peers.</li>
+<li>Not as reliable as using a dedicated server.</li>
+<li>"Tit-for-tat" mechanism, selecting peers that are best for you, and then they may begin using your machine.</li>
+<li>Searching uses distributed hash, so you know which nodes are responsible for certain pieces of file.</li>
+</ul>
+
+<h3>Difference from Client-Server Software</h3>
+
+<ul>
+<li>The machine is both server <em>and</em> client.</li>
+<li>It's harder to discover hosts.</li>
+</ul>
+
+<h2>Transport Layer</h2>
+
+<ul>
+<li>IP is best effort, which means unreliable and out of order.</li>
+<li>TCP offers:
+<ul>
+<li>Reliability</li>
+<li>Ordering</li>
+<li>Data Integrity</li>
+<li>Multiplexing</li>
+</ul></li>
+<li>UDP offers:
+<ul>
+<li>Data Integrity</li>
+<li>Multiplexing</li>
+</ul></li>
+</ul>
+
+<h3>UDP Server</h3>
+
+<ul>
+<li>No listen, connect, accept</li>
+<li>Get a socket, bind it, and then call recievefrom</li>
+<li>recievefrom reads, but also gets client return info</li>
+<li>To send back, since we have no connection, use sendto</li>
+<li>Don't need a new socket, just use the same one.</li>
+</ul>
+
+<h3>De-multiplexing</h3>
+
+<ul>
+<li>UDP, just use destination IP and port.</li>
+<li>TCP, we use multiple sockets on one port, so we have to look at the source IP/port as well.</li>
+<li>First connection, hand shake, goes through default listening port.</li>
+</ul>
+
+<h3>Checksum</h3>
+
+<ul>
+<li>Take 16-bit checksum of message, put in header.</li>
+<li>Actually take one's compliment of checksum.</li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Networks - Lecture 10</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>Networks - Lecture 10</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Feb 26</h1>
+
+<h1>TCP, cont'd</h1>
+
+<h2>Reliability, cont'd</h2>
+
+<ul>
+<li>Sequence Number: byte number of packet in stream.</li>
+<li>ACK Number: byte number that comes after packet (seq no + packet size).</li>
+<li>If a packet is lost, send the ack for the most recent packet <em>three</em> times.</li>
+<li>Three is considered enough for a resend, sent in response to further packets sent.</li>
+</ul>
+
+<h2>Flow Control</h2>
+
+<ul>
+<li>Avoid overwhelming the receiver.</li>
+<li>Window Size: min of receiver window and congestion window.</li>
+<li>Receiver Window: How many bytes you're willing to buffer.
+<ul>
+<li>This takes into account how many bytes have been buffered.</li>
+<li>Which leads to the problem of receiver window 0.</li>
+<li>Sender keeps sending small packets, receiver keeps sending ACKS with same number as sequence number of small packet and receiver window of 0.</li>
+</ul></li>
+</ul>
+
+<h2>Congestion Control</h2>
+
+<ul>
+<li>Don't overwhelm the network.</li>
+<li>Lots of input, or input lines, to a switch with small output, causes congestion.</li>
+<li>Focusing a lot of output to one port can cause congestion.</li>
+<li>To avoid this, we need admission control.</li>
+<li>To deal with this when it happens:
+<ul>
+<li>Queuing. Start buffering incoming packets.</li>
+<li>Packet drop tells TCP that there's congestion.</li>
+</ul></li>
+<li>Slow Start: Send one segment, get ACK. Send two segments, get two ACKS. Grow exponentially.</li>
+<li>If we have packet drop at any point in slow start, go back to one segment and start over.</li>
+<li>Slow Start Threshold: 1/2 congestion window where loss was experienced.</li>
+<li>After threshold, enter Congestion Avoidance: Increase by 1 segment each time.</li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

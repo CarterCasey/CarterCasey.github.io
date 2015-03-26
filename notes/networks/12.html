@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Networks - Lecture 12</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>Networks - Lecture 12</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Mar 5</h1>
+
+<h1>IP</h1>
+
+<h2>Routing - IP addresses</h2>
+
+<h3>IPv4</h3>
+
+<ul>
+<li>32 bit number, split into four 8 bit values.</li>
+<li>First x bits is used for network part.</li>
+<li>Last 32 - x bits used for host part.</li>
+<li><p>The x is determined by class of addresses:</p>
+
+<ul>
+<li>Class A: First 8 bits for network.</li>
+<li>Class B: First 16 bits.</li>
+<li>Class C: First 24 bits.</li>
+</ul></li>
+<li><p>Classless InterDomain Routing (CIDR): any number of bits for network.</p></li>
+<li><p>Writing out usage, we use something like 130.64.23.141/24.</p></li>
+<li><p>Subnetworks can take an extra couple bits for their own net.</p>
+
+<ul>
+<li>For instance, Tufts CS could get 130.64.23.141/26.</li>
+</ul></li>
+<li><p>To get the right subnet, IP uses longest prefix matching.</p></li>
+</ul>
+
+<h3>Private Addresses</h3>
+
+<ul>
+<li>10.0.0.0/8</li>
+<li>192.168.0.0/16</li>
+<li><p>172.16.0.0/16</p></li>
+<li><p>Use Network Address Translation (NAT):</p>
+
+<ul>
+<li>Pick a port to translate global to local IP.</li>
+</ul></li>
+</ul>
+
+<h2>Forwarding</h2>
+
+<ul>
+<li>We know prefix. How do we get next hop?</li>
+</ul>
+
+<h3>IP Header</h3>
+
+<ul>
+<li>Source and destination addresses</li>
+<li>Time-to-live:
+<ul>
+<li>Mitigate loops.</li>
+<li>Router decrements the field.</li>
+<li>Identifier (fragment offset).</li>
+<li>Flags</li>
+</ul></li>
+</ul>
+
+<h2>IPv6</h2>
+
+<ul>
+<li>128 bit number for address.</li>
+<li>Doesn't support fragmentation.
+<ul>
+<li>Security concerns - fragmentation forces routers to do too much.</li>
+</ul></li>
+<li>Routing between v4 and v6 happens by encapsulating v6 in v4.</li>
+</ul>
+
+<p>Next Assignments:  </p>
+
+<ul>
+<li>Assignment 4 is mostly based on network tools, with some questions.</li>
+<li>Assignment 5 is building HTTP proxy (unless you come up with your own).
+<ul>
+<li>Build functionality on top of the proxy (cache eviction, firewall, etc).</li>
+</ul></li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>IDS - Lecture 14</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>IDS - Lecture 14</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">IDS</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Mar 24</h1>
+
+<h1>Scalability, Performance, and Caching - <a href="http://www.cs.tufts.edu/comp/150IDS/slides/performance.pdf">Slides</a></h1>
+
+<h2>Terminology</h2>
+
+<ul>
+<li>Performance - speed and efficiency.</li>
+<li>Scalability - "low barriers to growth," can get big without problems.</li>
+<li>Availability - there when you need it.</li>
+<li><p>Reliability - never doing anything wrong.</p></li>
+<li><p>Throughput - rate at which whole system does work.</p></li>
+<li>Response Time - time after a request that you get a response.</li>
+<li>Latency - time spent doing nothing.</li>
+</ul>
+
+<p>Tension between throughput and response time - between system and single user.  </p>
+
+<h2>Know How Fast Things Are</h2>
+
+<p>(See slides)  </p>
+
+<h2>Hard Disk Slowness</h2>
+
+<ul>
+<li>A lot of the latency in a system is in hard disks.</li>
+<li>We have to move a needle out over part of a disk, put it down, then pick it up again.</li>
+<li>It's fast, but mechanically fast - which means it's hugely slower than cpus.</li>
+</ul>
+
+<h2>Paralellism</h2>
+
+<h3>Amdahl's Law</h3>
+
+<ul>
+<li>Parallel Processing won't scale up.</li>
+<li>While we can do a lot of work on the parallelizable phase, but some phases can't be done in parallel.</li>
+<li><p>I/O will usually be slow.</p></li>
+<li><p>He was mostly right, but then people started working on much larger problems.</p></li>
+</ul>
+
+<h2>Web Performance and Scaling</h2>
+
+<ul>
+<li>The Web has to be <em>huge</em>, so scalability is more important than performance (but we shouldn't sacrifice perfomance just for that).</li>
+<li>See slides...</li>
+</ul>
+
+<h3>Caches</h3>
+
+<ul>
+<li><p>Locality:</p>
+
+<ul>
+<li>We want to work with things that are nearby.</li>
+<li>This is effective because there's a small amount of data we usually care about.</li>
+</ul></li>
+<li><p>Why is caching hard?</p>
+
+<ul>
+<li>Things change. You don't want to show old, incorrect information.</li>
+</ul></li>
+<li><p>Cache invalidation on multi-core machines:</p>
+
+<ul>
+<li>Caches have to communicate with each other in order to make sure that you never get a bad read.</li>
+</ul></li>
+<li><p>Consistency vs Performance</p>
+
+<ul>
+<li>It's really easy to be fast if you don't care about the rest of the system.</li>
+</ul></li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">IDS</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

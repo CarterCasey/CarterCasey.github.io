@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Networks - Lecture 8</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>Networks - Lecture 8</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Feb 17</h1>
+
+<h1>Reliable Protocol on Unreliable Channel</h1>
+
+<h2>Tools</h2>
+
+<h3>Acknowledgments</h3>
+
+<ul>
+<li>ACK - Use when number of corrupted packets are small.</li>
+<li>NACK - Use when lots of corrupted packets possible.</li>
+</ul>
+
+<h3>Retransmissions</h3>
+
+<ul>
+<li>Use timeouts to prevent blocking, but allow room for error.</li>
+<li>Retransmit after timeout, in case packet got lost.</li>
+</ul>
+
+<h3>Sequencing</h3>
+
+<ul>
+<li>Sequence number of packets helps with choppy, out of order delivery.</li>
+</ul>
+
+<h2>Protocols</h2>
+
+<h3>Stop &amp; Wait</h3>
+
+<ul>
+<li>Send one packet at a time, wait for acknowledgment.</li>
+<li>If ACK "never" comes, resend corresponding packet.</li>
+<li>"Never," in this case, means by timeout. We don't want to wait forever.</li>
+<li>If duplicate ACK is sent, just ignore second one.</li>
+<li>Base timeout on propogation delay (based on previous exchanges).</li>
+</ul>
+
+<h3>Go Back N (Pipelined)</h3>
+
+<ul>
+<li>Know we can send N un-acknowledged packets.</li>
+<li>ACK includes specific sequence number in window.</li>
+<li>ACK is accumulative, so all packets up to sequence number must be fine.</li>
+<li>When ACK is received, client moves up window of N packets.</li>
+<li>What's the ratio between window size and sequence range.</li>
+</ul>
+
+<h3>Selective Repeat</h3>
+
+<ul>
+<li>Has windows like above, but get acks for all packets.</li>
+<li>Timeout on each packet, and move window when all packets have arrived.</li>
+<li>Receiver also moves window for all packets received.</li>
+<li>Make sure sequence number size is twice as large.</li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

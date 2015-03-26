@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>IDS - Lecture 10</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>IDS - Lecture 10</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">IDS</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Feb 26</h1>
+
+<h1>Request for Comments (RFC) - <a href="http://www.cs.tufts.edu/comp/150IDS/slides/RFC.pdf">Slides</a></h1>
+
+<ul>
+<li>IETF: Composed of individuals.</li>
+<li>Open Standards: A means for everyone to interact on the web/internet/etc, without forcing them to use the same software.</li>
+<li>Open Source: Still useful for people to interact with web without dealing with propriety.</li>
+</ul>
+
+<h2>Short History of RFC</h2>
+
+<ul>
+<li>Steve Crocker wanted to have an informal way of laying down notes from IETF.</li>
+<li>Didn't want to seem presumptuous, so called it Request for Comments.</li>
+<li>Remain, to this day, the documentation for Internet Protocols.</li>
+</ul>
+
+<h1>URIs and RFC 3986 - <a href="http://www.cs.tufts.edu/comp/150IDS/slides/uri.pdf">Slides</a></h1>
+
+<h2>Names in HTTP</h2>
+
+<ul>
+<li>Schemes hold names. They (http, etc) refer to a space of names.</li>
+<li>The host is a name, and the path is a different kind of name.</li>
+<li>Even the status code and content-type is a name.
+<ul>
+<li>How do decide what the content-type means.</li>
+</ul></li>
+</ul>
+
+<h2>URI breakdown</h2>
+
+<ul>
+<li>Scheme: Name different kinds of things, which are <strong>accessed</strong> in different ways.</li>
+<li>Authority: The host, the one responsible for this name.</li>
+<li>// Tim doesn't think the second slash was necessary.</li>
+<li>Path: The actual name of the resource.</li>
+<li>Query: Often, all queries are processed by the same script. Text left of ? is used to pick an agent to process query.</li>
+<li># fragment ...</li>
+</ul>
+
+<h2>Characteristics of URIs</h2>
+
+<ul>
+<li>URI references can be absolute and relative</li>
+<li>Considered an address, because you can use URI to find a resource.</li>
+<li><em>Mostly</em> global.</li>
+<li>Are literally the structure of the web. Reveal the hierarchy of underlying systems.</li>
+<li>Environmental constraints: ASCII-only because of DNS (and such), % encoding for non-readable or banned characters.</li>
+<li>HTTP redirection allows indirect identification (like looking up Noah).</li>
+</ul>
+
+<h2>Grammars</h2>
+
+<ul>
+<li>Powerful tool for parsing and checking names/specs.</li>
+<li>They're formal, and cannot be debated.</li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">IDS</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

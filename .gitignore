@@ -1,0 +1,6 @@
+a.out
+*.fdb_latexmk
+notes/*/*.md
+notes/topage.py
+notes/Markdown.pl
+notes/page.html.template

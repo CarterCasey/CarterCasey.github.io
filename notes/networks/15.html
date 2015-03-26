@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Networks - Lecture 15</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>Networks - Lecture 15</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Mar 24</h1>
+
+<h2>Link Layer</h2>
+
+<ul>
+<li>Reliability - Forward Error Correction and Acknowledge/Request</li>
+<li>MAC (medium access control)
+<ul>
+<li>Random Access (Aloha) - High collision rate</li>
+<li>Timed Random Access (Slotted Aloha) - Can't collide with messages sent before</li>
+<li>CSMA/CD - Carrier Sensing, Multiple Access / Collision Detection</li>
+</ul></li>
+</ul>
+
+<h3>Ethernet (Bus based)</h3>
+
+<ul>
+<li>When using Carrier Sensing, you must transmit for at least 2 * prop delay.
+<ul>
+<li>On ethernet, the minimum is 64 bytes. There's a physical limit on ethernet, namely for how far you can send the signal along the wire.</li>
+</ul></li>
+<li>Upper bound of backoff intervals grow exponential with each collision.</li>
+<li>Jamming?</li>
+</ul>
+
+<h3>Ethernet (Switched)</h3>
+
+<ul>
+<li>Only connect to a switch.</li>
+<li><p>Link is full duplex (can send and receive at the same time).</p></li>
+<li><p>Preamble: Series of seven bytes that indicate a synchronization,
+        one byte to indicate the start of the message.</p></li>
+<li><p>MAC addresses: Use them to bootstrap with DHCP. IP addresses aren't permanent.</p></li>
+<li>ARP is used to populate a routing table with MAC addresses.</li>
+</ul>
+
+<h2>Midterm</h2>
+
+<ul>
+<li>Don't need to memorize every single acronyms.</li>
+</ul>
+
+<h3>Quiz Questions</h3>
+
+<h4>Quiz 1</h4>
+
+<ul>
+<li>Store-and-Forward switch stores packet before sending, Cut-Through just sends it through.</li>
+<li>Delays:
+<ul>
+<li>Propogation: Distance / speed of light.</li>
+<li>Transmission Delay: Connection throughput / message size.</li>
+</ul></li>
+<li>For Store-and-forward, takes twice transmission delay.</li>
+<li>Cut-through is only delayed by a byte (for the header of the packet). </li>
+</ul>
+
+<h4>Quiz 2</h4>
+
+<ul>
+<li>IP router question, just know binary.</li>
+<li>Also, remember to just match up to 16th bit (don't go farther).</li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

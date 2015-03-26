@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>IDS - Lecture 6</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>IDS - Lecture 6</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">IDS</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Feb 5</h1>
+
+<h1>Introduction to TCP/IP - <a href="http://www.cs.tufts.edu/comp/150IDS/slides/TCPIP.pdf">Slides</a></h1>
+
+<h2>Internet Protocol (cont'd)</h2>
+
+<h3>IPv6</h3>
+
+<ul>
+<li>IPv4 gives us 2^32 addresses, but in reality blocking makes this number much smaller.</li>
+<li>IPv6 gives us 2^128, which is a hell of a lot. </li>
+<li>We didn't go this far originally because 4 billion sounded like a lot, given that there were only 14 nodes in the entire network.</li>
+</ul>
+
+<h2>Domain Name System (DNS)</h2>
+
+<ul>
+<li>Most common case is getting ip address from host name.</li>
+<li>DNS is a UDP service.</li>
+<li>Other information is stored through DNS.</li>
+<li>Resolution of DNS lookup is hierarchical.
+<ul>
+<li>DNS Recurser starts, looks for root server.</li>
+<li>Then root server responds with TLD name server location.</li>
+<li>Then gives a more specific name server for more specific domain.</li>
+</ul></li>
+</ul>
+
+<h3>IDNA: Internationalized Domain Names</h3>
+
+<ul>
+<li>Technically DNS is only in ASCII.</li>
+<li>Someone came up with PunyCode that maps unicode to ascii in a very weird way.</li>
+<li>Spoofing issues: there are unicode characters that look exactly like ascii, so when they're put in domains you can be sent somewhere completely unexpected.</li>
+</ul>
+
+<h2>Transport Layer</h2>
+
+<h3>User Datagram Protocol</h3>
+
+<ul>
+<li>User-level unreliable transport of datagrams.</li>
+<li>Messages may be dropped, come in out of order.</li>
+<li>Program-to-program instead of host-to-host (IP). The ends are different.</li>
+<li>Content is checksummed, so it's clean on arrival.</li>
+<li>Try to keep to 512 bytes. Tend not to fragment.</li>
+</ul>
+
+<h3>Addressing TCP and UDP</h3>
+
+<ul>
+<li>Addressed using IP address/port pair.</li>
+<li>Low-value ports are reserved and known.</li>
+<li>Higher level ports are used for off-road programs, responses.</li>
+</ul>
+
+<h3>Why UDP?</h3>
+
+<ul>
+<li>Not a lot of overhead for packets.</li>
+<li>Very efficient for very small idempotent messages.</li>
+<li>Idempotent: Same result occurs no matter times it happens.
+<ul>
+<li>Retrieving a value, setting something to absolute value (x = 10).</li>
+<li>Not setting relative values (x += 10).</li>
+</ul></li>
+</ul>
+
+<h3>Why <em>not</em> UDP?</h3>
+
+<ul>
+<li>Trying to set up your own protocol over UDP is very hard, and mistake-prone.</li>
+<li>Flow control is hard, when TCP already does it for you.</li>
+<li>TCP gives reliability, which is often necessary.</li>
+</ul>
+
+<h3>Transport Control Protocol</h3>
+
+<ul>
+<li>Stream based protocol.</li>
+<li>Reliable, delivers packets in order.</li>
+</ul>
+
+<h1>Coding Framework Introduction - <a href="http://www.cs.tufts.edu/comp/150IDS/slides/PingDemo.pdf">Slides</a></h1>
+
+<ul>
+<li>Framework written for C++.</li>
+* 
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">IDS</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>IDS - Lecture 11</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>IDS - Lecture 11</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">IDS</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Mar 5</h1>
+
+<h1>Models of Distributed Computing - <a href="http://www.cs.tufts.edu/comp/150IDS/slides/Models%20of%20Distributed%20Computing.pdf">Slides</a></h1>
+
+<h2>Communicating Systems</h2>
+
+<ul>
+<li>We have two machines running asyncrhonously, passing messages.</li>
+<li>How do we get them to work together?</li>
+<li>Communicating Sequential Process (CSP) Model is the basis</li>
+</ul>
+
+<h3>Message Passing</h3>
+
+<ul>
+<li>We can agree to keep messages the same format, rather than just byte streams.</li>
+<li>How do we synchronize? Timeouts? Retries?</li>
+</ul>
+
+<h3>Interaction Patterns</h3>
+
+<ul>
+<li>Request/Response: the most classic. Send a message, get a confirmation/response.</li>
+<li>Client/Server: determines the role of the nodes in the system.
+<ul>
+<li>Simple, and well understood.</li>
+<li>But how do we use more than two machines?</li>
+<li>How do we know it works?</li>
+</ul></li>
+<li><p>N-Tier: Multi-level Client/Server architecture.</p>
+
+<ul>
+<li>Layered, each level provides service for next.</li>
+<li>Useful for management, scalability, and information hiding.</li>
+<li>Mid-level can cache information, serve as go-between.</li>
+</ul></li>
+<li><p>First major n-tier system: Airline Reservations</p>
+
+<ul>
+<li>Made a high request/response OS, the later versions still being used.</li>
+</ul></li>
+<li><p>Web is usually a two or three tier system.</p>
+
+<ul>
+<li>Often the middle tier is a proxy, if it exists.</li>
+</ul></li>
+</ul>
+
+<h2>Remote Procedure Call</h2>
+
+<ul>
+<li>Main Idea: An ordinary function call executes remotely.</li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">IDS</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

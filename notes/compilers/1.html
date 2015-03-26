@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Compilers - Lecture 1</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>Compilers - Lecture 1</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Compilers</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Jan 14</h1>
+
+<p><strong>Book:</strong> Cooper &amp; Torczon - "Engineering a Compiler"  </p>
+
+<p><strong>Goal:</strong> Build a compiler. Walk through the process of compiling, solving the problems that arise in ML.  </p>
+
+<p>Trying to compile an imperative C-ish language (with a little OO) to x64.  </p>
+
+<p>No exams(!)  </p>
+
+<p>What should a compiler do?  </p>
+
+<ul>
+<li>Be correct.</li>
+<li>Optimize.</li>
+<li>Catch errors.</li>
+</ul>
+
+<p>How do we ensure correctness?  </p>
+
+<ul>
+<li>Build test suites.</li>
+<li>Prove it.</li>
+<li>Use syntax directed compilation.</li>
+<li>Make test generation tools.</li>
+<li>Generate pieces of the compiler in ways that follow a spec.</li>
+</ul>
+
+<p>What does a compiler need to know?  </p>
+
+<ul>
+<li>Structure of the language.</li>
+<li>What can't/shouldn't be done in a language.</li>
+<li>ABI.</li>
+</ul>
+
+<p>Pieces of Compiler:  </p>
+
+<ul>
+<li>Lexer/Scanner - takes ascii text source code, produces tokens.</li>
+<li>(Grammar) Parser - takes tokens and organizes into grammatical structure (AST).</li>
+<li>Semantic Checks (types, whether objects exist, contol flow).</li>
+<li>Code Generator - take AST and produce assembly code.</li>
+</ul>
+
+<p>Optimization can happen at two levels - high level optimization in the actual AST, low level optimization in the assembly itself.</p>
+
+<p>I'm adding this as a test.</p>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Compilers</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

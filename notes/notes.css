@@ -1,0 +1,128 @@
+body {
+	font-size: 18px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: rgb(0, 150, 200);
+	text-decoration: none;
+}
+
+a:hover {
+	color: rgb(0, 100, 125);
+	text-decoration: none;
+}
+
+ul {
+	margin-left: 0px;
+	padding-left: 0px;
+	list-style-type: none;
+}
+
+div div {
+	margin-left: 3%;
+	margin-right: 3%;
+}
+
+#top-menu {
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	padding-top: 55px;
+	position: absolute;
+	padding-bottom: 50px;
+	text-transform: uppercase;
+	background-color: rgb(90, 180, 180);
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+#top-menu a {
+	color: black;
+}
+
+#top-menu a:hover {
+	color: gray;
+}
+
+#title {
+	float: left;
+	padding: 5px;
+	font-size: 26px;
+	font-weight: bold;
+}
+
+#menu-items {
+	float: right;
+	font-size: 20px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+#menu-items li {
+	padding: 6px;
+	display: inline;
+}
+
+.intro {
+	margin-top: 125px;
+	padding-top: 100px;
+	margin-right: 25px;
+	padding-right: 5px;
+}
+
+.intro h1 {
+	text-align: center;
+}
+
+#prev {
+	float: left;
+}
+
+#to_class {
+	text-align: center;
+}
+
+#next {
+	float: right;
+}
+
+#top-bar {
+	text-align: center;
+	margin-bottom: 25px;
+	padding-bottom: 25px;
+}
+
+.job {
+	font-style: italic;
+}
+
+.notes {
+	width: 70%;
+	margin-left: 50px;
+	padding-left: 50px;
+	margin-bottom: 25px;
+	padding-bottom: 25px;
+}
+
+.notes div {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+.notes p {
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+}
+
+.notes ul {
+	margin-top: 0px;
+	padding-top: 0px;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+.notes li {
+	list-style-type: disc;
+	list-style-position: inside;
+}

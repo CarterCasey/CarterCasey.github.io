@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Networks - Lecture 11</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>Networks - Lecture 11</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Mar 3</h1>
+
+<h2>TCP Congestion Control</h2>
+
+<h3>Loss</h3>
+
+<ul>
+<li>Timeout means there's probably congestion, because no packets are going through.
+<ul>
+<li>After timeout, set congestion window (cwnd) to 1.</li>
+</ul></li>
+<li>Duplicate ACKs mean one packet got dropped, but others got through.
+<ul>
+<li>After 3 dup acks, old TCP (Tahoe) would set cwnd to 1.</li>
+<li>New TCP (Reno) cuts cwnd in half after 3 dups.</li>
+<li>New TCP also uses fast recovery - add 1 for every duplicate.</li>
+<li>(Additive increase, multiplicative decrease).</li>
+</ul></li>
+</ul>
+
+<h3>Determining Throughput</h3>
+
+<ul>
+<li>During this phase, we hover between w and w/2 window sizes.</li>
+<li>So 3w/4 / round-trip-time is the throughput.</li>
+</ul>
+
+<h2>Analysis of TCP</h2>
+
+<ul>
+<li>Sharing TCP:
+<ul>
+<li>Additive Increase, Additive Decrease doesn't change fairness.</li>
+<li>MIMD brings back to origin, but only when </li>
+<li>AIMD is the only one that gets to proper equilibrium.</li>
+</ul></li>
+</ul>
+
+<h1>Network Layer</h1>
+
+<ul>
+<li>Virtual Circuit:
+<ul>
+<li>Connection setup</li>
+<li>Data transfer</li>
+</ul></li>
+<li>IP:
+<ul>
+<li>Datagram Forwarding</li>
+<li>No connection</li>
+</ul></li>
+</ul>
+
+<h2>IP routing</h2>
+
+<ul>
+<li>Send links through nearest connected router.</li>
+<li>If on WAN, send to ISP.</li>
+<li><p>If on LAN, send directly to machine.</p></li>
+<li><p>Intra-Domain Protocols</p>
+
+<ul>
+<li>OSPF, RIP can be used.</li>
+<li>Next class.</li>
+</ul></li>
+<li><p>Inter-Domain Protocols</p>
+
+<ul>
+<li>BGP is used.</li>
+<li>Next week.</li>
+</ul></li>
+</ul>
+
+<h3>Heirarchical IP addresses</h3>
+
+<ul>
+<li>Routers can't hold info about every machine in world.</li>
+<li>Must convey routing information in IP address.</li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

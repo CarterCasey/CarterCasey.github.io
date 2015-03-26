@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Compilers - Lecture 5</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>Compilers - Lecture 5</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Compilers</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Feb 11</h1>
+
+<p>The lexer has "clunky syntax."  </p>
+
+<p>Basically:</p>
+
+<ul>
+<li>Regex on the left, action on the right</li>
+<li>Also get to have states. Can transition into another state from action</li>
+</ul>
+
+<p>C++ is a bigger mess to lex than C, unsurprisingly.  </p>
+
+<h2>Context-Free Grammars</h2>
+
+<ul>
+<li>Spec for scanner is in regexes. Linear time.</li>
+<li>Spec for parser is in context-free grammars. O(n^3).</li>
+<li>Try to avoid n^3 times, look for restricted context-free grammars that have linear time solutions.</li>
+<li>Early's algorithm for solving these uses dynamic programming.</li>
+<li>GLR is one of these.</li>
+</ul>
+
+<h3>Why regexes aren't powerful enough</h3>
+
+<ul>
+<li>Can't count arbitrarily.</li>
+<li>Matching parens, for instance, won't work.</li>
+</ul>
+
+<h3>Making Context-Free Grammars</h3>
+
+<ul>
+<li>Terminal Symbols - tokens</li>
+<li>Non-Terminal Symbols</li>
+<li>Form Productions, which are: NT -> (T &Union; NT)*</li>
+<li>Use Backus-Naur Form to write down CFG</li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Compilers</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

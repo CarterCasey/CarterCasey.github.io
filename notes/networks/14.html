@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Networks - Lecture 14</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>Networks - Lecture 14</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Mar 12</h1>
+
+<h1>Link Layer</h1>
+
+<ul>
+<li>Deliver (IP) datagrams to next-hop router.</li>
+<li><p>At link layer, packets are called frames.</p></li>
+<li><p>Services:</p>
+
+<ul>
+<li>Framing (sending, interpreting frames)</li>
+<li>Reliability (or lack thereof?)</li>
+<li>Medium Access Control (MAC)</li>
+</ul></li>
+</ul>
+
+<h2>Reliability</h2>
+
+<ul>
+<li>End-to-end reliability is great for correctness, but doesn't help performance.</li>
+<li><p>For performance, however, we need reliability at a lower level.</p></li>
+<li><p>ARQ (Automatic Repeat reQuest):</p>
+
+<ul>
+<li>Wait for acks to know something has worked.</li>
+<li>Requires timeouts, which makes it slow.</li>
+</ul></li>
+<li><p>FEC (Forward Error Correction):</p>
+
+<ul>
+<li>Add extra information to help make packet redundant.</li>
+<li>For example, if we send two bytes, add an extra byte that's an xor of the two.</li>
+<li><p>More overhead, but faster - we can correct errors.</p></li>
+<li><p>Doesn't need to be confined to frame, can be on multiple frames.</p></li>
+</ul></li>
+</ul>
+
+<h2>Medium Access Control</h2>
+
+<ul>
+<li><p>How do we allow all connected devices to work on a shared medium?</p></li>
+<li><p>Taking turns:</p>
+
+<ul>
+<li>Requires an arbiter.</li>
+<li>People make known their intent to send frames.</li>
+</ul></li>
+<li>Channel Partitioning Protocols:
+<ul>
+<li>Allocate time.</li>
+<li>Determine how frequently people.</li>
+<li>Could waste resources. What if only one person wants to talk, but they have to wait for their turn while no one is talking.</li>
+</ul></li>
+<li><p>Random Access Protocols:</p>
+
+<ul>
+<li>Everyone starts sending at full rate.</li>
+<li>Problem: there could be collisions.
+<ul>
+<li>Try to detect collisions.</li>
+<li>Cause random backoffs.</li>
+</ul></li>
+</ul></li>
+<li><p>Collisions:</p>
+
+<ul>
+<li>Vulnerability is twice the time it takes to send frame.</li>
+<li>Aloha, then slotted Aloha.</li>
+<li>Slotted Aloha forces people to send in certain slots.</li>
+</ul></li>
+<li><p>Ethernet - CSMA/CD:</p>
+
+<ul>
+<li>Carrier Sense - check if medium is being used.</li>
+<li>Multiple Access - multiple devices connect to medium.</li>
+<li>Collision Detection - sense a change in the wire when sending.</li>
+</ul></li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+
