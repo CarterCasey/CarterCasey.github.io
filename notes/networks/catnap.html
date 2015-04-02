@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Networks - Catnap Reading</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>Catnap Reading</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1><strong>Catnap</strong>: Exploiting High Bandwidth Wireless Interfaces to Save Energy for Mobile Devices</h1>
+
+<h2>Outline</h2>
+
+<h3>The Main Problem</h3>
+
+<ul>
+<li>Network transfers take a lot of energy.</li>
+<li>Mobile devices don't have long battery lives.</li>
+<li>Putting parts of the device to sleep during idle periods helps. (Power Saving Mode).</li>
+<li>In extended idle periods, we can put the whole device to sleep. (Suspend-to-RAM).</li>
+<li>We can sleep during parts of network transfer (e.g. TCP slow start), but not during full transfer period.</li>
+<li><p>Right?</p></li>
+</ul>
+
+<h3>Sleeping on the Job</h3>
+
+<ul>
+<li>What happens when a high bandwidth connection interfaces with low bandwidth connections?
+<ul>
+<li>There are gaps between packets for the faster side of the connection.</li>
+</ul></li>
+<li>A prime example of such things is the wired to wireless interace that happens for wi-fi routers.</li>
+<li>So we can put the device to sleep during those gaps.</li>
+<li><p>What does that look like?</p></li>
+</ul>
+
+<h3>Catnap</h3>
+
+<ul>
+<li>Focus on data-oriented applications that deal in blocks - delays between blocks aren't a big deal.</li>
+<li>Three Concepts:
+<ul>
+<li><em>Decouple</em> wired and wireless segments.
+<ul>
+<li>Do this with middlebox, which batches packets and sends them as a unit on wake up.</li>
+</ul></li>
+<li><em>Application Data Unit</em> is unit of transfer.
+<ul>
+<li>Basically just take underlying units like web objects and p2p chunks.</li>
+<li>Application independent, but receptive to different application needs.</li>
+</ul></li>
+<li><em>Bandwidth estimates</em> allow the middlebox to determine how much batching can happen before delay will be noticeable between ADUs.</li>
+</ul></li>
+<li>Middlebox scheduler has different modes, one when no delay is allowed, and another (batch) where some end-to-end delay is allowed.</li>
+</ul>
+
+<p>Note: NIC = Network Interface Controller  </p>
+
+<h3>Why are we doing this again?</h3>
+
+<ul>
+<li>We put (sub-)systems to sleep to save energy.</li>
+<li>802.11 is 15% of laptop energy, but 60% of mobile phone.</li>
+<li>Sleep modes vary from power saving mode to save-to-ram to reading.</li>
+<li><p>But it's hard on the modern internet:</p>
+
+<ul>
+<li>A given application has several different use-cases. Telnet packets should be fast, but a web resource can be sent all in one piece.</li>
+<li>TCP requires syncrhonization on the end-points, and so is somewhat delay-intolerant.</li>
+</ul></li>
+<li>For catnap to work <em>well</em>, we should let middleboxes shape internet traffic in a relaxed synchronization environment.</li>
+</ul>
+
+<h3>Napping in the Middlebox</h3>
+
+<ul>
+<li><p>Target different scenarios:</p>
+
+<ul>
+<li>Small transfers - maintain end-to-end delivery with no delay, use PSM on NIC.</li>
+<li>Big transfers - allow whole device to sleep (S3) during transfer, even at potential (but likely unnoticed) delay.</li>
+<li>In between - make a choice between the two (scheduler's job).</li>
+</ul></li>
+<li><p>What do the pieces of middlebox look like in reality?</p></li>
+</ul>
+
+<h4>Proxy</h4>
+
+<ul>
+<li>In charge of <em>decoupling</em>, as mentioned above.</li>
+<li>Splits the wireless and wired connection, allowing different controls to work on each.
+<ul>
+<li>Could even allow different protocols on each side, in the future.</li>
+</ul></li>
+<li>Allows data storage in the Delay Tolerant Network style. Can buffer large amounts.</li>
+</ul>
+
+<h4>Workload Hints</h4>
+
+<ul>
+<li>Define the boundaries of an Applicatino Data Unit (ADU).</li>
+<li>These are often implicitly defined. HTTP requests/responses, P2P chunks, FTP files.</li>
+<li>Lots of applications embed them in headers already - HTTP has content-length header field.</li>
+<li>The proxy can know the application we're dealing with, get workload hint from existing meta-information (headers).</li>
+<li>Otherwise can ask the server to precede transfer with a header: (ID, Length, Mode).
+<ul>
+<li>ID used for caching ADUs.</li>
+<li>Length, most important, is the size of ADU (it's the workload hint).</li>
+<li>Mode indicates whether batch mode, and potential delays, can be used.</li>
+</ul></li>
+</ul>
+
+<h4>Scheduler</h4>
+
+<ul>
+<li>Works in two modes discussed before:
+<ul>
+<li>Normal (no delays) and batch (which is sort of store and forward on ADUs).</li>
+</ul></li>
+<li>Decides how much the device can sleep. Based on four variables.
+<ul>
+<li>Size of transfer.</li>
+<li>Cost of sleeping.</li>
+<li>Bandwitdh on wired side.</li>
+<li>Bandwidth on wireless side.</li>
+</ul></li>
+<li>Decides (of course) <em>when</em> the device can sleep.</li>
+</ul>
+
+<h3>The Future</h3>
+
+<ul>
+<li><strong>UDP-Blast</strong> has a much higher throughput on wireless home router.
+<ul>
+<li>It takes advantage of the fact that TCP on a stable, local connection like home wi-fi is overly reliable.</li>
+<li>Adding a little light reliability could make UDP-Blast the protocol of choice for the wireless side of Catnap.</li>
+</ul></li>
+<li><strong>Pre fetching</strong> - if we use the proxy like a proxy, we can cache big downloads to the middlebox, which is used to "interruptions" and can just hold onto the data until a device is back up (say, if someone goes to work).</li>
+</ul>
+
+<h2>Questions</h2>
+
+<ul>
+<li><p>What about ethernet? When I moved into my house, I had a terrible router and a great ethernet connection. When does the scenario you're describing happen?</p></li>
+<li><p>Is it secure? It seems like an attacker could use batch timing to get information about encrypted transfers.</p></li>
+<li><p>To add to that, you mention in the IMAP example that you could parse the header and attach some length information. How could this handle HTTPS and other encrypted connections? Would that work at all?</p></li>
+<li><p>How would it work under HTTP/2? Relates to the multiple objects HTML pages test case. (I'm thinking better.)</p></li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Networks</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

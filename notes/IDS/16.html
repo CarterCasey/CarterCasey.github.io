@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>IDS - Lecture 16</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>IDS - Lecture 16</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">IDS</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Mar 31</h1>
+
+<h1>HTTP/2 - Guest lecture with Mark Nottingham</h1>
+
+<ul>
+<li>The Web works differently now:
+<ul>
+<li>The amount of content transferred for a page has grown.</li>
+<li>The number of request/response cycles has increased considerably.</li>
+<li>This causes a lot of latency.</li>
+</ul></li>
+<li>We have new performance techniques to deal with this.
+<ul>
+<li>CSS spriting (lots of little images in one).</li>
+<li>Inlining images into CSS to avoid extra loads.</li>
+<li>Sharding - spread resources out onto separate domains.</li>
+<li>Concatenation - stick all the data into one resource to force only one request.</li>
+</ul></li>
+<li>These are hacks - they're a response to what seems to be a broken protocol.</li>
+<li>"Eliminate requests." - but why are requests so bad.</li>
+</ul>
+
+<h2>Why are HTTP requests so expensive?</h2>
+
+<ol>
+<li>HTTP/1 uses TCP poorly
+<ul>
+<li>Head of Line Blocking: Have one outstanding request per connection.</li>
+<li>So we try to use multiple (4-8) connections per page load.</li>
+<li>This makes HTTP "short and bursty," while TCP wants long-standing connections.</li>
+<li>Don't want to overload link with congestion, so we can't use tons of connections.</li>
+<li>On the other hand, most of the HTTP requests live in slow start.</li>
+</ul></li>
+<li>HTTP Headers have gotten really big
+<ul>
+<li>Multiple requests to the same server often means lots of redundant bytes.</li>
+</ul></li>
+</ol>
+
+<h2>How does HTTP/2 address this?</h2>
+
+<p>The main, underlying goal, is to use <strong>one</strong> TCP connection efficiently.  </p>
+
+<h3>Frames</h3>
+
+<ul>
+<li>Request/response is parsed (usually) into header and 0 or more data frames</li>
+<li>Multiplexing - reordering is allowed, based on stream ID.
+<ul>
+<li>Allows requests to go out all at once.</li>
+</ul></li>
+</ul>
+
+<h4>Prioritization and Flow Control</h4>
+
+<ul>
+<li>Help clients and servers better communicate about the data they send back and forth.</li>
+</ul>
+
+<h3>Header Compression</h3>
+
+<ul>
+<li>The character re-use in headers makes compressing them over multiple requests very powerful.</li>
+<li>CRIME: Allows an injection attack to break open encrypted GZIP packets.</li>
+<li>Instead, they use HPACK. There's a coarser granularity, which makes probing much harder.</li>
+<li>HPACK isn't quite as powerful compression as GZIP, but close enough and safer.</li>
+</ul>
+
+<h3>Server Push</h3>
+
+<ul>
+<li>The server <em>knows</em> what most of your next requests are going to be.</li>
+<li>HTTP/2 lets the server push you the information it knows you're going to want.</li>
+</ul>
+
+<h2>Adoption of SPDY</h2>
+
+<ul>
+<li>IETF picked SPDY as the successor from the start - they saw how well it was doing, wanted to take over and make it public, instead of leaving it out on the market.</li>
+</ul>
+
+<h2>Questions</h2>
+
+<p>Q. What's the future of the Web in terms of the transport layer, especially considering how HTTP/2 takes on some of the jobs that are typically relegated to the transport layer?  </p>
+
+<p>A. The writing's on the wall for TCP.  </p>
+
+<ul>
+<li>Multiple Proposals:
+<ul>
+<li>SPUD - standardize headers for UDP.</li>
+<li>QUIC - Google's experiment of HTTP/2 on UDP. Encryption baked in. FEC. Super-fancy.</li>
+</ul></li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">IDS</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

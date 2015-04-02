@@ -36,9 +36,9 @@
 <div class="notes">
 <h1>Feb 3</h1>
 
-<h1>HTTP continued</h1>
+<h2>HTTP continued</h2>
 
-<h2>HTTP Proxies</h2>
+<h3>HTTP Proxies</h3>
 
 <ul>
 <li>Go-between for client and server.</li>
@@ -51,7 +51,7 @@
 </ul></li>
 </ul>
 
-<h3>How do we know the cached page is up-to-date?</h3>
+<h4>How do we know the cached page is up-to-date?</h4>
 
 <ul>
 <li>Just clear the cache every couple minutes.</li>
@@ -60,7 +60,7 @@
 <li>Server could send a message to update to <em>all</em> clients.</li>
 </ul>
 
-<h3>Actual Solutions</h3>
+<h4>Actual Solutions</h4>
 
 <ul>
 <li>Conditional GET: if data has been modified, send it.</li>
@@ -68,32 +68,32 @@
 <li>Private caching: server only allows the cache to serve specific content to one client.</li>
 </ul>
 
-<h2>Cookies</h2>
+<h3>Cookies</h3>
 
 <ul>
 <li>Keep small pieces of information about client in server.</li>
 <li>Keep the actual cookie on client side. Send it to server when making get request.</li>
 </ul>
 
-<h3>Security</h3>
+<h4>Security</h4>
 
 <ul>
 <li>Sent in plain-text.</li>
 <li>Third-party cookies.</li>
 </ul>
 
-<h2>Other Aspects of HTTP</h2>
+<h3>Other Aspects of HTTP</h3>
 
 <ul>
 <li>You can specify content range in GET request.</li>
 <li>Referral field in GET request (what website sent me here).</li>
 </ul>
 
-<h1>DNS</h1>
+<h2>DNS</h2>
 
 <p>System to correlate domain (host) names with IP addresses.  </p>
 
-<h2>Name Servers</h2>
+<h3>Name Servers</h3>
 
 <p>Can't use one server:  </p>
 
@@ -103,7 +103,7 @@
 <li>Has to be available around the world (or even just relatively close).</li>
 </ul>
 
-<h3>Distributed System</h3>
+<h4>Distributed System</h4>
 
 <ol>
 <li>Start at local host.</li>
@@ -115,7 +115,7 @@
 
 <p>Lots of caching here.  </p>
 
-<h2>Records</h2>
+<h3>Records</h3>
 
 <p>Have a couple fields: </p>
 
@@ -128,7 +128,7 @@
 
 <p>Uses UDP because there's no handshake, doesn't need to be reliable.</p>
 
-<h2>Security</h2>
+<h3>Security</h3>
 
 <ul>
 <li>Root is the biggest target.</li>

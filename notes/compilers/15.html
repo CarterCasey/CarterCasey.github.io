@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Compilers - Lecture 15</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>Compilers - Lecture 15</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Compilers</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Mar 30</h1>
+
+<h2>Optimization</h2>
+
+<ul>
+<li>Big ticket items are instruction selection and register allocation.</li>
+</ul>
+
+<h2>Nested Functions</h2>
+
+<ul>
+<li>Brings up whole hosts of problems.</li>
+<li>You might want to refer to another function's activation record.
+<ul>
+<li>This is fine with non-functional languages - just refer back to record.</li>
+<li>But with first class functions, you have to refer to that activation record even after the call to the outer function has finished.</li>
+</ul></li>
+<li>We make persistent activation records.</li>
+</ul>
+
+<h2>Target Machines</h2>
+
+<ul>
+<li>RISC gives us easier machine code to work with.</li>
+<li>We want to walk through AST to find pieces that can be done with simple instructions.</li>
+<li>On the other hand, x64 has more powerful instructions.</li>
+<li><p>To work with those larger instructions, we want to "tile" the AST.</p></li>
+<li><p>Best system is Bottom-Up Rewrite Generator (BURG).</p></li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">Compilers</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+

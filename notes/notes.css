@@ -76,8 +76,17 @@ div div {
 	text-align: center;
 }
 
-#class-list {
+div#class-list {
+	font-size: 30px;
 	text-align: center;
+	margin-top: 20px;
+	padding-top: 20px;
+}
+
+#class-list div {
+	display: inline;
+	margin: 0px 7px 0px 7px;
+	padding: 0px 7px 0px 7px;
 }
 
 #prev {

@@ -50,11 +50,11 @@
 <li>For serving large networks simultaneously, P2P scales better than client/server.</li>
 <li>A server sending a file out to multiple users will take as long as the slowest link (or its own upload time for all the files).
 <ul>
-<li>Time is max(NF/U<em>s, F/d</em>min)</li>
+<li>Time is max(NF/Us, F/dmin)</li>
 </ul></li>
 <li>On P2P we don't need to upload many files from server. 
 <ul>
-<li>Time is max(F/U<em>s, F/d</em>min, NF/(U<em>s + sum(U</em>1, U_2, ...)))</li>
+<li>Time is max(F/Us, F/dmin, NF/(Us + sum(U1, U2, ...)))</li>
 </ul></li>
 <li>Client/server ability to serve all members of network increases with number of members.</li>
 <li>P2P levels off when more and more members are added.</li>

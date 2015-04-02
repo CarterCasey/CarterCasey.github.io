@@ -36,9 +36,9 @@
 <div class="notes">
 <h1>Feb 24</h1>
 
-<h1>TCP</h1>
+<h2>TCP</h2>
 
-<h2>Connection Management</h2>
+<h3>Connection Management</h3>
 
 <ul>
 <li>Uses segments of max size 1460</li>
@@ -67,22 +67,16 @@
 <li><p>Closing connection is done with FIN, FIN-ACK, ACK.</p></li>
 </ul>
 
-<h2>Reliability</h2>
+<h3>Reliability</h3>
 
 <ul>
-<li><p>Timeout</p>
-
+<li>Timeout
 <ul>
 <li>More than twice the propogation delay.</li>
 <li>Sample RTT: most recent packet</li>
 <li>Estimated Round Trip Time = .875 * previous ERTT + .125 * SRTT</li>
 <li>DevRTT = (1 - &beta;)DevRTT + &beta;(SampleRTT - EstRTT)</li>
 <li>Timeout = EstRTT + 4 * DevRTT</li>
-</ul></li>
-<li><p>Acknowledgement</p>
-
-<ul>
-* 
 </ul></li>
 </ul>
 
