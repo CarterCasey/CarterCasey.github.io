@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>IDS - Lecture 17</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" type="text/css" href="../notes.css"/>
+	<link rel="icon" type="image/ico" href="../../favicon.ico"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="../notes.js"></script>
+</head>
+
+<body>
+<div id="top-menu">
+	<div>		
+		<a id="title" href="../index.html">Notes</a>
+		<ul id="menu-items">
+			<li><a href="../index.html?class=ids">IDS</a></li>
+			<li><a href="../index.html?class=networks">Networks</a></li>
+			<li><a href="../index.html?class=compilers">Compilers</a></li>
+			<li><a href="../index.html?class=web">Web Programming</a></li>
+			<li><a href="../../index.html">- Home -</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="intro">
+	<h1>IDS - Lecture 17</h1>
+</div>
+
+<!-- <div class="nav-bar" id="top-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">IDS</div>
+	<div id="next">Next</div>
+</div> -->
+
+<div class="notes">
+<h1>Apr 2</h1>
+
+<h1>(Early) Web Security - Guest Lecture by Mary Ellen Zurko</h1>
+
+<h2>Mind the Gap - Authentication</h2>
+
+<ul>
+<li>Gap between human factors and security.</li>
+<li>Secret management - not turtles all the way down.</li>
+</ul>
+
+<h3>Defense in depth</h3>
+
+<ul>
+<li>Cover <em>all</em> your bases.</li>
+<li>Never lie to your customers.</li>
+</ul>
+
+<h3>Basic Authentication</h3>
+
+<ul>
+<li>Server prompts, client responds with plain-text (encoded) passwords.</li>
+<li>Every server has a different authentication.</li>
+<li>Who's asking for your password? Can we authenticate the authenticator?</li>
+</ul>
+
+<h2>Mind the Gap - Encryption</h2>
+
+<ul>
+<li>Gives you confidentiality (only you can read it).</li>
+<li>Authentication</li>
+<li>Integrity (Tamper Detection)</li>
+<li>Replay detection (stops duplicates)</li>
+</ul>
+
+<h3>Digest Authentication</h3>
+
+<ul>
+<li>Hash the password, send it hashed.</li>
+<li><p>Other side can just compare the hash.</p></li>
+<li><p>Issues:</p>
+
+<ul>
+<li>Clients and servers need to support each other's protocols, and the Web had already been using Basic Authentication. Can spoof for man in the middle.</li>
+<li>People didn't understand why you need it, don't want to bother.</li>
+</ul></li>
+</ul>
+
+<h3>S-HTTP</h3>
+
+<ul>
+<li>Encrypt the HTML page on the way over.</li>
+<li>Flexible - was supposed to support <em>all</em> encryption types.</li>
+<li><p>Client/server can negotiate enhancements they can use.</p></li>
+<li><p>The scale is <strong>crazy</strong>: users have to understand all the encryptions. </p></li>
+<li>Flexibility introduces far too many issues.</li>
+</ul>
+
+<h3>HTTPS</h3>
+
+<ul>
+<li>Protocol that wraps HTTP.</li>
+<li><p>Uses SSL/TLS to deal with encryption and authentication.</p></li>
+<li><p>Forces us to trust a <em>lot</em> of third party authenticators.</p></li>
+<li>If they <em>don't</em> use one of the many (214) authenticators, the user is faced with a weird error.</li>
+</ul>
+
+<h3>Extended Validation Certificates</h3>
+
+<ul>
+<li>The green padlock.</li>
+<li>Doesn't mean very much when not everyone uses or cares about it.</li>
+</ul>
+
+<h3>DHTML</h3>
+
+<ul>
+<li>Code and Data started mixing. Bad news, because the page can suddenly start attacking you.</li>
+<li>Whitelisting and Blacklisting features of HTML.</li>
+</ul>
+
+<h3>Mobile Applications</h3>
+
+<ul>
+<li>People still don't pay very much attention.</li>
+</ul>
+
+</div>
+
+<!-- <div class="nav-bar" id="bottom-bar">
+	<div id="prev">Previous</div>
+	<div id="to_class">IDS</div>
+	<div id="next">Next</div>
+</div> -->
+</body>
+
+</html>
+
