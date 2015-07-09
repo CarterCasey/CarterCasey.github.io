@@ -185,17 +185,3 @@ div div {
 #graphs img {
 	border-style: solid;
 }
-
-/* For a very silly thing */
-
-.giant {
-	font-size: 135px;
-	text-align: center;
-}
-
-.tiny {
-	font-size: 12px;
-	text-align: center;
-	margin-top: 20px;
-	padding-top: 20px;
-}
