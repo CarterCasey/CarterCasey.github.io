@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Ripples</title>
+	<title>Bubbles</title>
 	<meta charset="utf-8"/>
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:900">
-	<link rel="stylesheet" type="text/css" href="/css/bubble.css">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:900"/>
+	<link rel="stylesheet" type="text/css" href="/css/bubble.css"/>
 	<link rel="stylesheet" type="text/css" href="style.css"/>
 	<script src="/bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
-	<link rel="import" href="/bower_components/paper-toggle-button/paper-toggle-button.html"></script>
+	<link rel="import" href="/bower_components/iron-icons/iron-icons.html"/>
+	<link rel="import" href="/bower_components/iron-icons/image-icons.html"/>
+	<link rel="import" href="/bower_components/iron-icons/hardware-icons.html"/>
+	<link rel="import" href="/bower_components/iron-icon/iron-icon.html"/>
+	<link rel="import" href="/bower_components/paper-toggle-button/paper-toggle-button.html"/>
 </head>
 <body>
 
 <div id="button-container">
-<paper-toggle-button class="button" id="background-ripple"></paper-toggle-button><span>Background</span>
+<iron-icon class="button-icon" icon="image:blur-linear"></iron-icon>
+<paper-toggle-button class="button" id="background-ripple"></paper-toggle-button>
 <br/>
-<paper-toggle-button class="button" id="cursor-ripple"></paper-toggle-button><span>Cursor</span>
+<iron-icon class="button-icon" icon="hardware:keyboard-arrow-up"></iron-icon>
+<paper-toggle-button class="button" id="cursor-ripple"></paper-toggle-button>
 </div>
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
