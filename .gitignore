@@ -1,3 +1,4 @@
+test.*
 a.out
 *.fdb_latexmk
 notes/*/*.md
