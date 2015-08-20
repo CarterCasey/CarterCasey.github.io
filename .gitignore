@@ -1,7 +1,8 @@
 test.*
 a.out
-*.fdb_latexmk
+polymer/*
 notes/*/*.md
+*.fdb_latexmk
 notes/topage.py
 notes/Markdown.pl
 notes/page.html.template
