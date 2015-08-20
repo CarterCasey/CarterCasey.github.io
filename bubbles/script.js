@@ -9,16 +9,16 @@ $(window).load(function () {
 	var max_size = 80;
 	var colors = {
 		red: {
-			min: 0,
-			max: 255,
+			min: +$(".color-setting.red").attr("min"),
+			max: +$(".color-setting.red").attr("max"),
 		},
 		green: {
-			min: 0,
-			max: 255,
+			min: +$(".color-setting.green").attr("min"),
+			max: +$(".color-setting.green").attr("max"),
 		},
 		blue: {
-			min: 0,
-			max: 255,
+			min: +$(".color-setting.blue").attr("min"),
+			max: +$(".color-setting.blue").attr("max"),
 		},	
 	};
 	
@@ -53,9 +53,9 @@ function mouseBubble (event, colors, max_size) {
 	var top   = event.pageY - 20;
 	var left  = event.pageX - 20;
 	var size  = randInt(max_size - 50, max_size);
-	var color = "rgb(" + randInt(colors.red.min, colors.red.max) +  "," 
-					+ randInt(colors.green.min, colors.green.max) + ","
-					+ randInt(colors.blue.min, colors.blue.max) +   ")";
+	var color = "rgb(" + randInt(colors.red.min, colors.red.max) +     "," 
+					   + randInt(colors.green.min, colors.green.max) + ","
+					   + randInt(colors.blue.min, colors.blue.max) +   ")";
 	
 	blowBubble(top, left, size, color);
 }
