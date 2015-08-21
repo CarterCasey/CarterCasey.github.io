@@ -16,39 +16,20 @@
 	<link rel="import" href="../bower_components/iron-icons/hardware-icons.html"/>
 	<link rel="import" href="../bower_components/iron-icons/communication-icons.html"/>	
 	
-	<link rel="import" href="../bower_components/iron-collapse/iron-collapse.html"/>
-
 	<link rel="import" href="../bower_components/paper-toggle-button/paper-toggle-button.html"/>
-	<link rel="import" href="../bower_components/paper-button/paper-button.html"/>
-	<link rel="import" href="../bower_components/paper-slider/paper-slider.html"/>
+
+	<link rel="import" href="bubbles-control-panel.html"/>
 </head>
 <body>
 
 <style is="custom-style">
-	paper-slider.red {
-		--paper-slider-knob-color: var(--paper-red-700);
-		--paper-slider-active-color: var(--paper-red-700);
-		--paper-slider-pin-color: var(--paper-red-700);
+	paper-toggle-button {
+		--paper-toggle-button-checked-bar-color: black;
+		--paper-toggle-button-checked-button-color: black;
+		--paper-toggle-button-checked-ink-color: black;
 	}
-	
-	paper-slider.green {
-		--paper-slider-knob-color: var(--paper-green-700);
-		--paper-slider-active-color: var(--paper-green-700);
-		--paper-slider-pin-color: var(--paper-green-700);
-	}
-	
-	paper-slider.blue {
-		--paper-slider-knob-color: var(--paper-blue-700);
-		--paper-slider-active-color: var(--paper-blue-700);
-		--paper-slider-pin-color: var(--paper-blue-700);
-	}
-	
-	 paper-toggle-button {
-		--paper-toggle-button-checked-bar-color: var(--paper-purple-900);
-		--paper-toggle-button-checked-button-color: var(--paper-purple-900);
-		--paper-toggle-button-checked-ink-color: var(--paper-purple-900);
-	}
-</style>
+</style>	
+
 
 <div id="button-container">
 
@@ -61,22 +42,8 @@
 		<iron-icon class="button-icon" icon="communication:call-made"></iron-icon>
 		<paper-toggle-button class="button" id="cursor-ripple"></paper-toggle-button>
 	</div>
-
-	<div id="settings-content">
-		<paper-button id="settings-button"></paper-button>
 	
-		<iron-collapse id="settings">
-			<div id="settings-content">
-				<paper-slider class="color-setting red" data-color="red"
-					data-target="max" min="0" max="255" value="255" pin></paper-slider>
-				<paper-slider class="color-setting green" data-color="green"
-					data-target="max" min="0" max="255" value="255" pin></paper-slider>
-				<paper-slider class="color-setting blue" data-color="blue"
-					data-target="max" min="0" max="255" value="255" pin></paper-slider>
-			</div>
-		</iron-collapse>
-	</div>
-
+	<bubbles-control-panel></bubbles-control-panel>
 </div>
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>

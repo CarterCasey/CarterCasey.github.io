@@ -1,0 +1,152 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html"/>
+<link rel="import" href="../bower_components/iron-collapse/iron-collapse.html"/>
+
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html"/>
+<link rel="import" href="../bower_components/paper-button/paper-button.html"/>
+<link rel="import" href="../bower_components/paper-slider/paper-slider.html"/>
+
+<dom-module id="bubbles-control-panel">
+	<style>
+		paper-tabs {
+			--paper-tabs-selection-bar-color: black;
+		}
+		
+		paper-tab {
+			--paper-tab-ink: black;
+		}
+	
+		[data-target="min"] {
+			--paper-slider-active-color: #c8c8c8;
+		}
+	
+		paper-slider[data-target="min"].red {			
+			--paper-slider-secondary-color: var(--paper-red-600);
+			--paper-slider-knob-start-color: var(--paper-red-600);
+			--paper-slider-knob-start-border-color: var(--paper-red-600);
+			--paper-slider-pin-start-color: var(--paper-red-600);
+			
+			--paper-slider-knob-color: var(--paper-red-600);
+			--paper-slider-pin-color: var(--paper-red-600);
+		}
+		
+		paper-slider[data-target="min"].green {
+			--paper-slider-secondary-color: var(--paper-green-600);
+			--paper-slider-knob-start-color: var(--paper-green-600);
+			--paper-slider-knob-start-border-color: var(--paper-green-600);
+			--paper-slider-pin-start-color: var(--paper-green-600);
+			
+			--paper-slider-knob-color: var(--paper-green-600);
+			--paper-slider-pin-color: var(--paper-green-600);
+		}
+		
+		paper-slider[data-target="min"].blue {
+			--paper-slider-secondary-color: var(--paper-blue-700);
+			--paper-slider-knob-start-color: var(--paper-blue-700);
+			--paper-slider-knob-start-border-color: var(--paper-blue-700);
+			--paper-slider-pin-start-color: var(--paper-blue-700);
+			
+			--paper-slider-knob-color: var(--paper-blue-700);
+			--paper-slider-pin-color: var(--paper-blue-700);
+		}
+		
+		paper-slider[data-target="max"].red {
+			--paper-slider-knob-color: var(--paper-red-600);
+			--paper-slider-active-color: var(--paper-red-600);
+			--paper-slider-pin-color: var(--paper-red-600);
+			
+			--paper-slider-knob-start-color: var(--paper-red-600);
+			--paper-slider-knob-start-border-color: var(--paper-red-600);
+			--paper-slider-pin-start-color: var(--paper-red-600);
+		}
+		
+		paper-slider[data-target="max"].green {
+			--paper-slider-knob-color: var(--paper-green-600);
+			--paper-slider-active-color: var(--paper-green-600);
+			--paper-slider-pin-color: var(--paper-green-600);
+			
+			--paper-slider-knob-start-color: var(--paper-green-600);
+			--paper-slider-knob-start-border-color: var(--paper-green-600);
+			--paper-slider-pin-start-color: var(--paper-green-600);
+		}
+		
+		paper-slider[data-target="max"].blue {
+			--paper-slider-knob-color: var(--paper-blue-700);
+			--paper-slider-active-color: var(--paper-blue-700);
+			--paper-slider-pin-color: var(--paper-blue-700);
+			
+			--paper-slider-knob-start-color: var(--paper-blue-700);
+			--paper-slider-knob-start-border-color: var(--paper-blue-700);
+			--paper-slider-pin-start-color: var(--paper-blue-700);
+		}
+	
+		paper-slider.size-setting[data-target="max"] {
+			--paper-slider-knob-color: black;
+			--paper-slider-active-color: black;
+			--paper-slider-pin-color: black;
+			
+			--paper-slider-knob-start-color: black;
+			--paper-slider-knob-start-border-color: black;
+			--paper-slider-pin-start-color: black;
+		}
+		
+		paper-slider.size-setting[data-target="min"] {
+			--paper-slider-secondary-color: black;
+			--paper-slider-knob-start-color: black;
+			--paper-slider-knob-start-border-color: black;
+			--paper-slider-pin-start-color: black;
+			
+			--paper-slider-knob-color: black;
+			--paper-slider-pin-color: black;
+		}
+	</style>
+	
+	<template>
+		<paper-button id="control-button"></paper-button>
+	
+		<iron-collapse id="control-panel">
+			<paper-tabs id="control-selection" selected="{{setting}}">
+				<paper-tab>Min</paper-tab>				
+				<paper-tab>Max</paper-tab>
+				<paper-tab>Size</paper-tab>
+			</paper-tabs>
+			<iron-pages selected="{{setting}}">
+				<div id="control-mins">
+					<paper-slider class="color-setting red" data-color="red"
+						data-target="min" min="0" max="255" value="0"
+						secondary-progress="255" pin></paper-slider>
+					<paper-slider class="color-setting green" data-color="green"
+						data-target="min" min="0" max="255" value="0"
+						secondary-progress="255" pin></paper-slider>
+					<paper-slider class="color-setting blue" data-color="blue"
+						data-target="min" min="0" max="255" value="0"
+						secondary-progress="255" pin></paper-slider>
+				</div>
+				<div id="control-maxes">
+					<paper-slider class="color-setting red" data-color="red"
+						data-target="max" min="0" max="255" value="255" pin></paper-slider>
+					<paper-slider class="color-setting green" data-color="green"
+						data-target="max" min="0" max="255" value="255" pin></paper-slider>
+					<paper-slider class="color-setting blue" data-color="blue"
+						data-target="max" min="0" max="255" value="255" pin></paper-slider>
+				</div>
+				<div id="control-size">
+					<paper-slider class="size-setting" min="0" max="80" value="80"
+						data-target="max" pin></paper-slider>
+					<paper-slider class="size-setting" min="0" max="80" value="30"
+						data-target="min" secondary-progress="80" pin></paper-slider>
+				</div>
+			</iron-pages>
+		</iron-collapse>
+	</template>
+	
+	<script>
+		Polymer({
+			is: "bubbles-control-panel",
+			
+			// TODO: Replace most data and functionality in script.js
+			// with properties and behavior in this module.
+		});
+	</script>
+</dom-module>
